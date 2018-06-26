@@ -26,7 +26,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-            messages: [
+            "messages": [
                 {
                     "text": "Hello, world1",
                     "type": "text"
