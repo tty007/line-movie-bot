@@ -26,9 +26,13 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+            messages = [
+                "ラブリーボーン",
+                "タイタニック"
+            ]
             message = {
                 type: 'text',
-                text: event.message['text']
+                text: messages.sample.to_s
               }
           client.reply_message(event['replyToken'], message)
         end
