@@ -134,7 +134,7 @@ class LinebotController < ApplicationController
                 type: 'text',
                 text: messages.sample.to_s
               }
-          client.reply_message(event['replyToken'], message)
+          client.reply_message(event['replyToken'], event.message['text'])
         end
       end
     }
