@@ -15,15 +15,6 @@ class LinebotController < ApplicationController
     body = request.body.read
 
     #---sendメソッド用---
-
-
-    result = params[:result][0]
-    logger.info({from_line: result})
-    text_message = result['content']['text']
-    from_mid =result['content']['from']
-
-    client = LineClient.new(CHANNEL_ID, CHANNEL_SECRET, CHANNEL_MID, OUTBOUND_PROXY)
-    res = client.send([from_mid], text_message)
     #-------------------
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -36,6 +27,7 @@ class LinebotController < ApplicationController
     events.each { |event|
       case event
       when Line::Bot::Event::Message
+        if Line::Bot::Event::Message == "あ"
         case event.type
         when Line::Bot::Event::MessageType::Text
             messages = [
@@ -148,23 +140,11 @@ class LinebotController < ApplicationController
               }
           client.reply_message(event['replyToken'], message)
         end
+        end
       end
     }
 
     head :ok
-  end
-
-  def send(line_ids, message)
-    post('/v1/events', {
-        to: line_ids,
-        content: {
-            contentType: ContentType::TEXT,
-            toType: ToType::USER,
-            text: "テストメッセージ"
-        },
-        toChannel: TO_CHANNEL,
-        eventType: EVENT_TYPE
-    })
   end
 
 end
