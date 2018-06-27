@@ -133,11 +133,11 @@ class LinebotController < ApplicationController
                 "ヒックとドラゴン(2010)/ファミリー",
                 "スター・トレック イントゥ・ダークネス(2013)/SF"
             ]
-            messagereply = {
+            message = {
                 type: 'text',
                 text: messages.sample.to_s
               }
-          client.reply_message(event['replyToken'], messagereply)
+          client.reply_message(event['replyToken'], message)
         end
         end
       end
