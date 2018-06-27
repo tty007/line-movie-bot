@@ -26,7 +26,7 @@ class LinebotController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-            if Line::Bot::MessageText::Text == "あ"
+            if Line::Bot::Event::MessageText::Text == "あ"
                 messages = [
                     "ラブリーボーン(2009)/ドラマ",
                     "her(2013)/SF,ラブストーリー",
