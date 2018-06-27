@@ -27,7 +27,6 @@ class LinebotController < ApplicationController
     events.each { |event|
       case event
       when Line::Bot::Event::Message
-        if Line::Bot::Event::Message == "あ"
         case event.type
         when Line::Bot::Event::MessageType::Text
             messages = [
@@ -134,11 +133,11 @@ class LinebotController < ApplicationController
                 "ヒックとドラゴン(2010)/ファミリー",
                 "スター・トレック イントゥ・ダークネス(2013)/SF"
             ]
-            message = {
+            messagereply = {
                 type: 'text',
                 text: messages.sample.to_s
               }
-          client.reply_message(event['replyToken'], message)
+          client.reply_message(event['replyToken'], messagereply)
         end
         end
       end
