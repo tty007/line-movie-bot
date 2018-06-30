@@ -48,7 +48,7 @@ class LinebotController < ApplicationController
       }
     end
 
-    def select_mobvies(genre)
+    def select_mobvies(genre = "")
       if genre.present?
         genre.match(/.*ドラマ.*/) == "ドラマ"
         movies = [
