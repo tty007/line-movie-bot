@@ -119,8 +119,9 @@ class LinebotController < ApplicationController
           "ベイビー・ドライバー(2017)/アクション",
           "ペイン&ゲイン 史上最低の一攫千金(2013)/アクション",
         ]
+        movies.sample
       elsif genre == "テスト"
-        "https://www.youtube.com/watch?v=k5LbshQBaRc"
+        return "https://www.youtube.com/watch?v=k5LbshQBaRc"
       else
         movies = [
           "ラブリーボーン(2009)/ドラマ",
