@@ -101,7 +101,7 @@ class LinebotController < ApplicationController
           "スター・トレック イントゥ・ダークネス(2013)/SF"
         ]
         movies.sample
-      elsif gnere == "アクション"
+      elsif genre == "アクション"
         movies = [
           "グランド・イリュージョン(2013)/アクション",
           "プレミアム・ラッシュ(2012)/アクション",
@@ -120,6 +120,8 @@ class LinebotController < ApplicationController
           "ペイン&ゲイン 史上最低の一攫千金(2013)/アクション"
         ]
         movies.sample
+      elsif genre == "テスト"
+        return "https://www.youtube.com/watch?v=k5LbshQBaRc"
       else
         movies = [
           "ラブリーボーン(2009)/ドラマ",
