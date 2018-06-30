@@ -49,7 +49,7 @@ class LinebotController < ApplicationController
     end
 
     def select_mobvies(genre = "")
-      if genre.match(/^.*ドラマ.*\/) == "ドラマ"
+      if genre.match(/^.*ドラマ.*/) == "ドラマ"
         movies = [
           "ラブリーボーン(2009)/ドラマ",
           "インポッシブル(2012)/ドラマ",
