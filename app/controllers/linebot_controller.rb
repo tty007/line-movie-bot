@@ -17,6 +17,14 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
 
           genre = event.message['text']
+          if genre == "テスト"
+            movie = select_mobvies(genre)
+            message = {
+                type: 'uri'
+                text: "#{movie}"
+            }
+            client.reply_message(event['replyToken'], message)
+          end
 
           if genre.present?
             movie = select_mobvies(genre)
